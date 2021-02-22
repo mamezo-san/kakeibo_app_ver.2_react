@@ -11,7 +11,7 @@ class EventIndex extends React.Component{
 
   renderEvents(){
     return _.map(this.props.events, event =>(
-      <tr>
+      <tr key={event.id}>
         <td>{event.id}</td>
         <td>{event.title}</td>
         <td>{event.body}</td>
@@ -41,7 +41,7 @@ class EventIndex extends React.Component{
     }
 }
 
-const mapStateToProps = state => ({events: state.events})
+const mapStateToProps = state => ({events: state.eventIndex})
 const mapDispatchToProps = ({
   readEvents
 })
