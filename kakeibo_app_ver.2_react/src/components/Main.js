@@ -1,4 +1,5 @@
 import React from 'react';
+import EventIndex from './Event_index';
 import Categori from './Categori';
 
 class Main extends React.Component {
@@ -7,6 +8,7 @@ class Main extends React.Component {
             {name:'電気代', money:'12000'},{name:'ガス代', money: '4000'}]
         return(
             <React.Fragment>
+                <EventIndex />
                 <div>
                 {lifeMoneys.map((lifeMoney,index)=>{
                     return(
