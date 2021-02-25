@@ -1,29 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore , applyMiddleware} from 'redux';
+import  createStore  from './reducks/store/store';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
 import './index.css';
-import App from './components/App';
-import reducers from './reducers'
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import eventIndex from './reducers/eventIndex';
-import EventIndex from './components/Event_index';
-import EventsNew from './components/events_new';
+import { ConnectedRouter } from "connected-react-router";
+import  * as History from "history";
 
-const store = createStore(reducers,applyMiddleware(thunk))
+const history = History.createBrowserHistory();
+export const store = createStore(history);
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-      <App />
-      <Switch>
-        <Route exact path="/events/new" component={EventsNew} />
-        <Route exact path="/" component={EventIndex} />
-      </Switch>
-      </BrowserRouter>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

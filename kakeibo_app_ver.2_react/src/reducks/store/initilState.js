@@ -5,9 +5,6 @@ const initialState = {
     valueChange:{
         value: 1
     }
-    // monthCount:{
-    //     value: 1
-    // }
 };
 
 export default initialState;
